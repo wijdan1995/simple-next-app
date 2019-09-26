@@ -1,11 +1,12 @@
 import Layout from '../components/Layout'
+import { withTranslation } from '../i18n';
 
-const about = () => {
+const about = ({ t }) => {
     return (
         <Layout>
-            <p>This App is for me to practice next.js</p>
+            <p>{t('about-text')}</p>
         </Layout>
     )
 }
 
-export default about
+export default withTranslation('common')(about)

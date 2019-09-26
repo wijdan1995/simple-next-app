@@ -1,13 +1,18 @@
 import Layout from '../components/Layout'
 import styled from "styled-components";
 
-const index = () => {
-    return (
-        <Layout>
-            <Title>Welcome To my Simple Next.js App</Title>
-            <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ipsum nostrum recusandae corporis harum soluta non, nihil mollitia assumenda illo minus tempora quidem placeat incidunt vitae iusto voluptatibus vel esse.</Text>
-        </Layout>
-    )
+// i18n
+import { withTranslation } from '../i18n';
+import PropTypes from 'prop-types'
+
+
+const Home = ({ t }) => {
+  return (
+    <Layout>
+      <Title>{t('welcome')}</Title>
+      <Text>{t('home-text')}</Text>
+    </Layout>
+  )
 }
 
 const Title = styled.h1`
@@ -20,5 +25,13 @@ const Text = styled.p`
   color: gray;
 `;
 
-export default index
+Home.getInitialProps = async () => ({
+  namespacesRequired: ['common'],
+})
+
+Home.propTypes = {
+  t: PropTypes.func.isRequired,
+}
+
+export default withTranslation('common')(Home)
 

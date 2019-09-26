@@ -1,12 +1,19 @@
 import Link from 'next/link'
 import styled from "styled-components";
 
-const Navbar = () => {
+//i18n
+import { i18n, withTranslation } from '../i18n';
+const Navbar = ({ t }) => {
     return (
         <nav>
-            <Link href='/'><NavLink>Home</NavLink></Link>
-            <Link href='/about'><NavLink>About</NavLink></Link>
-            <Link href='/contact'><NavLink>Contact</NavLink></Link>
+            <Link href='/'><NavLink>{t('home')}</NavLink></Link>
+            <Link href='/about'><NavLink>{t('about')}</NavLink></Link>
+            <Link href='/contact'><NavLink>{t('contact')}</NavLink></Link>
+            <Button
+                onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'ar' : 'en')}
+            >
+                {t('change-lang')}
+            </Button>
         </nav>
     )
 }
@@ -16,7 +23,17 @@ margin-right:20px;
 font-size: 1.5rem;
 cursor: pointer;
 color: #4c393c;
+border:none;
 
 `
 
-export default Navbar
+const Button = styled.a`
+background-color:pink;
+text-decoration:none;
+cursor:pointer;
+color:#4c393c;
+border-radius:5px;
+padding:3px;`
+
+
+export default withTranslation('common')(Navbar)

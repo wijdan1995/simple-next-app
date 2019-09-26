@@ -1,14 +1,13 @@
 import Layout from '../components/Layout'
 import styled from "styled-components";
+import { withTranslation } from '../i18n';
 
-const contact = () => {
+const contact = ({ t }) => {
     return (
         <Layout>
 
-            <p>
-                You can contact me anytime if you have any questions
-        </p>
-            <Button href="mailto:my@email.com">Contact me!</Button>
+            <p>{t('contact-text')}</p>
+            <Button href="mailto:my@email.com">{t('contact-button')}</Button>
         </Layout>
     )
 }
@@ -23,5 +22,5 @@ padding:5px;
 
 `
 
-export default contact
+export default withTranslation('common')(contact)
 
