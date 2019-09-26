@@ -19,7 +19,7 @@ const Navbar = ({ t }) => {
 }
 
 const NavLink = styled.a`
-margin-right:20px;
+margin:0 20px ;
 font-size: 1.5rem;
 cursor: pointer;
 color: #4c393c;
