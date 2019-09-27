@@ -2,10 +2,7 @@
     "welcome": "Welcome To my Simple Next.js App",
     "home-text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ipsum nostrum recusandae corporis harum soluta non, nihil mollitia assumenda illo minus tempora quidem placeat incidunt vitae iusto voluptatibus vel esse.",
     "contact": "Contact",
-    "contact-text": "You can contact me anytime if you have any questions",
-    "contact-button": "Contact Me",
     "home": "Home",
     "about": "About",
-    "about-text": "This App is for me to practice next.js",
     "change-lang": "عربي"
 }

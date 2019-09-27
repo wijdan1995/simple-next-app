@@ -1,8 +1,8 @@
-import Link from 'next/link'
 import styled from "styled-components";
+import PropTypes from 'prop-types'
 
 //i18n
-import { i18n, withTranslation } from '../i18n';
+import { i18n, withTranslation, Link } from '../i18n';
 const Navbar = ({ t, lng }) => {
     return (
         <nav>
@@ -37,5 +37,8 @@ padding:3px;
 float:${props => props.lng === 'ar' ? 'left' : 'right'};
 `
 
+Navbar.propTypes = {
+    t: PropTypes.func.isRequired,
+}
 
 export default withTranslation('common')(Navbar)

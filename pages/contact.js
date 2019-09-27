@@ -1,6 +1,7 @@
 import Layout from '../components/Layout'
 import styled from "styled-components";
 import { withTranslation } from '../i18n';
+import PropTypes from 'prop-types'
 
 const contact = ({ t }) => {
     return (
@@ -22,5 +23,13 @@ padding:5px;
 
 `
 
-export default withTranslation('common')(contact)
+contact.getInitialProps = async () => ({
+    namespacesRequired: ['common', 'contact'],
+})
+
+contact.propTypes = {
+    t: PropTypes.func.isRequired,
+}
+
+export default withTranslation('contact')(contact)
 

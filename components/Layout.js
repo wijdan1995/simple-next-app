@@ -1,7 +1,7 @@
 import Navbar from './Navbar'
 import styled, { createGlobalStyle } from "styled-components";
 import { i18n, withTranslation } from '../i18n';
-
+import PropTypes from 'prop-types'
 
 const GlobalStyle = createGlobalStyle`
 body{
@@ -23,6 +23,10 @@ const Layout = props => {
             <Warpper>{props.children}</Warpper>
         </Container>
     )
+}
+
+Layout.propTypes = {
+    t: PropTypes.func.isRequired,
 }
 
 export default withTranslation('common')(Layout)

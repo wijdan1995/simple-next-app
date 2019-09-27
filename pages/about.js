@@ -1,5 +1,6 @@
 import Layout from '../components/Layout'
 import { withTranslation } from '../i18n';
+import PropTypes from 'prop-types'
 
 const about = ({ t }) => {
     return (
@@ -9,4 +10,12 @@ const about = ({ t }) => {
     )
 }
 
-export default withTranslation('common')(about)
+about.getInitialProps = async () => ({
+    namespacesRequired: ['about'],
+})
+
+about.propTypes = {
+    t: PropTypes.func.isRequired,
+}
+
+export default withTranslation('about')(about)
