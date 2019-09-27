@@ -2,6 +2,11 @@ import Navbar from './Navbar'
 import styled, { createGlobalStyle } from "styled-components";
 import { i18n } from '../i18n';
 
+
+// Get the language
+let lang = i18n.language
+
+
 const GlobalStyle = createGlobalStyle`
 body{
     padding:0;
@@ -10,19 +15,13 @@ body{
 }
 `;
 
-const RTL = createGlobalStyle`
-html{
-  direction:rtl;
-}`
 
 const Layout = props => {
     return (
-        <Container>
-            {i18n.language === 'ar' ? <RTL /> : ''}
+        <Container to={i18n.language} >
             <GlobalStyle />
             <Navbar />
             <Warpper>{props.children}</Warpper>
-
         </Container>
     )
 }
@@ -37,8 +36,10 @@ color:gray;
 background-color: #fff;
 `
 
+
 const Container = styled.div`
 height: 100vh;
 background-color: #FDE4E4;
 padding:5%;
+direction: ${props => props.to === 'ar' ? "rtl" : "initial"}
 `
