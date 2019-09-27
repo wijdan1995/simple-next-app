@@ -1,10 +1,6 @@
 import Navbar from './Navbar'
 import styled, { createGlobalStyle } from "styled-components";
-import { i18n } from '../i18n';
-
-
-// Get the language
-let lang = i18n.language
+import { i18n, withTranslation } from '../i18n';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -17,16 +13,19 @@ body{
 
 
 const Layout = props => {
+    const { t } = props
+    const lng = i18n.language
     return (
-        <Container to={i18n.language} >
+        <Container lng={lng} >
             <GlobalStyle />
-            <Navbar />
+            {/* pass the lng and t to the nav to use it there again */}
+            <Navbar lng={lng} t={t} />
             <Warpper>{props.children}</Warpper>
         </Container>
     )
 }
 
-export default Layout
+export default withTranslation('common')(Layout)
 
 const Warpper = styled.div`
 padding:10%;
@@ -41,5 +40,5 @@ const Container = styled.div`
 height: 100vh;
 background-color: #FDE4E4;
 padding:5%;
-direction: ${props => props.to === 'ar' ? "rtl" : "initial"}
+direction: ${props => props.lng === 'ar' ? "rtl" : "initial"}
 `

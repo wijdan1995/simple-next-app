@@ -3,14 +3,14 @@ import styled from "styled-components";
 
 //i18n
 import { i18n, withTranslation } from '../i18n';
-const Navbar = ({ t }) => {
+const Navbar = ({ t, lng }) => {
     return (
         <nav>
             <Link href='/'><NavLink>{t('home')}</NavLink></Link>
             <Link href='/about'><NavLink>{t('about')}</NavLink></Link>
             <Link href='/contact'><NavLink>{t('contact')}</NavLink></Link>
-            <Button to={i18n.language}
-                onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'ar' : 'en')}
+            <Button lng={lng}
+                onClick={() => i18n.changeLanguage(lng === 'en' ? 'ar' : 'en')}
             >
                 {t('change-lang')}
             </Button>
@@ -34,7 +34,7 @@ cursor:pointer;
 color:#4c393c;
 border-radius:5px;
 padding:3px;
-float:${props => props.to === 'ar' ? 'left' : 'right'};
+float:${props => props.lng === 'ar' ? 'left' : 'right'};
 `
 
 
