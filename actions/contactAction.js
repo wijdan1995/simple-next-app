@@ -1,6 +1,6 @@
+import apiUrl from '../apiConfig'
 const axios = require('axios')
 
-const apiUrl = 'http://localhost:1234';
 
 export const sendMessage = (message) => {
     return (dispatch) => {

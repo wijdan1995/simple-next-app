@@ -32,7 +32,7 @@ class contact extends Component {
             <Layout>
                 <p>{this.props.t('contact-text')}</p>
 
-                <form onSubmit={this.handleSubmit}>
+                <Form onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="name">{this.props.t('name')}</label>
                         <input type="text" id="name" onChange={this.handleChange} />
@@ -49,13 +49,29 @@ class contact extends Component {
                     </div>
                     <br />
                     <Button>{this.props.t('contact-button')}</Button>
-                </form>
+                </Form>
 
             </Layout>
         )
     }
 
 }
+const Form = styled.form`
+background-color:#f9f9f9;
+border-radius:5px;
+padding:20px;
+input,textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+`
+
+
 const Button = styled.button`
 background-color:pink;
 text-decoration:none;
@@ -64,7 +80,7 @@ color:#4c393c;
 border-radius:5px;
 padding:5px;
 border: none;
-
+width: 100%;
 `
 
 contact.getInitialProps = async () => ({
