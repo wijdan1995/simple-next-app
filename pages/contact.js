@@ -24,7 +24,19 @@ class contact extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         // console.log(this.state);
-        this.props.sendMessage(this.state)
+        const contact = {
+            name: this.state.name,
+            email: this.state.email,
+            message: this.state.message
+        }
+        this.props.sendMessage(contact)
+        alert("Submitted")
+        this.setState({
+            name: '',
+            email: '',
+            message: ''
+        })
+
     }
     render() {
 
@@ -35,17 +47,17 @@ class contact extends Component {
                 <Form onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="name">{this.props.t('name')}</label>
-                        <input type="text" id="name" onChange={this.handleChange} />
+                        <input type="text" id="name" value={this.state.name} onChange={this.handleChange} />
                     </div>
                     <br />
                     <div>
                         <label htmlFor="email">{this.props.t('email')}</label>
-                        <input type="email" id="email" onChange={this.handleChange} />
+                        <input type="email" id="email" value={this.state.email} onChange={this.handleChange} />
                     </div>
                     <br />
                     <div>
                         <label htmlFor="message">{this.props.t('message')}</label>
-                        <textarea id="message" onChange={this.handleChange} />
+                        <textarea id="message" value={this.state.message} onChange={this.handleChange} />
                     </div>
                     <br />
                     <Button>{this.props.t('contact-button')}</Button>

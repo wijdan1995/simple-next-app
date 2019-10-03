@@ -1,7 +1,5 @@
 const initState = {
-    messages: [
-        { id: '1', name: 'wij', email: 'w@w.com', message: 'Hi' }
-    ]
+    messages: []
 }
 
 const contactReducer = (state = initState, action) => {
