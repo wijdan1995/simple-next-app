@@ -8,8 +8,9 @@ body{
     padding:0;
     margin:0;
     font-family: serif;
+    background-color: #FDE4E4;
 }
-`;
+`
 
 
 const Layout = props => {
@@ -32,17 +33,17 @@ Layout.propTypes = {
 export default withTranslation('common')(Layout)
 
 const Warpper = styled.div`
-padding:10%;
-margin:5%;
+padding:5%;
+margin: 5%;
 text-align:center;
 color:gray;
+border-radius:5px;
 background-color: #fff;
 `
 
 
 const Container = styled.div`
 height: 100vh;
-background-color: #FDE4E4;
-padding:5%;
+padding:3%;
 direction: ${props => props.lng === 'ar' ? "rtl" : "initial"}
 `

@@ -18,13 +18,13 @@ const Navbar = ({ t, lng }) => {
     )
 }
 
+
 const NavLink = styled.a`
 margin:0 20px ;
 font-size: 1.5rem;
 cursor: pointer;
 color: #4c393c;
 border:none;
-
 `
 
 const Button = styled.a`
